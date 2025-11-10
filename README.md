@@ -19,10 +19,10 @@ Performance is good.
 
 | Items | Time | Memory | Height |
 | --- | --- | --- | --- |
-| 1K | 8 ms | 23 mb | 3 |
+| 1K | 8 ms | 20 mb | 3 |
 | 10K | 25 ms | 30 mb | 3 |
-| 100K | 146 ms | 40 mb | 4 |
-| 1M | 1500 ms | 108 mb | 5 |
+| 100K | 140 ms | 40 mb | 4 |
+| 1M | 1500 ms | 110 mb | 5 |
 
 ## Exercise
 
