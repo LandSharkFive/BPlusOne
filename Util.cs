@@ -6,6 +6,10 @@ namespace BPlusOne
     {
         private static Random rnd = new Random();
 
+        /// <summary>
+        /// Shuffle the list.
+        /// </summary>
+        /// <param name="list">List</param>
         public static void Shuffle(List<int> list)
         {
             int n = list.Count;
@@ -19,6 +23,11 @@ namespace BPlusOne
             }
         }
 
+        /// <summary>
+        /// Is the list sorted?
+        /// </summary>
+        /// <param name="a">List</param>
+        /// <returns>bool</returns>
         public static bool IsSorted(List<int> a)
         {
             for (int i = 1; i < a.Count; i++)
@@ -31,6 +40,27 @@ namespace BPlusOne
             return true;
         }
 
+        /// <summary>
+        /// Does list have any duplicates?
+        /// </summary>
+        /// <param name="source">List</param>
+        /// <returns>bool</returns>
+        public static bool HasDuplicate(List<int> source)
+        {
+            var set = new HashSet<int>();
+            foreach (var item in source)
+            {
+                if (!set.Add(item))
+                    return true;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// Get memory in megabytes.
+        /// </summary>
+        /// <returns>int</returns>
         public static int GetMemory()
         {
             Process currentProcess = Process.GetCurrentProcess();

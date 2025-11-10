@@ -134,6 +134,7 @@ namespace UnitTest
 
             Assert.AreEqual(maxSize, b.Count);
             Assert.IsTrue(Util.IsSorted(b));
+            Assert.IsFalse(Util.HasDuplicate(b));
             t.Clear();
         }
 
@@ -164,6 +165,7 @@ namespace UnitTest
 
             Assert.AreEqual(a.Count, b.Count);
             Assert.IsTrue(Util.IsSorted(b));
+            Assert.IsFalse(Util.HasDuplicate(b));
             t.Clear();
         }
     }

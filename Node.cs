@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.Design.Serialization;
-
-namespace BPlusOne
+﻿namespace BPlusOne
 {
     public class Node
     {
@@ -19,27 +17,31 @@ namespace BPlusOne
             Size = 0;
         }
 
+
+        /// <summary>
+        /// Get Height of tree.  Recursive.
+        /// </summary>
+        /// <param name="n">Node</param>
+        /// <returns>int</returns>
         public static int GetHeight(Node n)
         {
             if (n == null) 
             { 
                 return 0; 
             }
-            int max = 0;
-            for (int i = 0; i < n.Size; i++)
+            int height = 0;
+            if (n.Size > 0)
             {
-                Node a = n.Child[i];
-                if (a == null)
-                    continue;
-                int ht = Node.GetHeight(a);
-                if (ht > max)
-                {
-                    max = ht;
-                }
+                height = Node.GetHeight(n.Child[0]);
             }
-            return max + 1;
+            return height + 1;
         }
 
+        /// <summary>
+        /// Get node count.  Recursive.
+        /// </summary>
+        /// <param name="n">Node</param>
+        /// <returns>int</returns>
         public static int GetNodeCount(Node n)
         {
             if (n == null) 
@@ -50,13 +52,19 @@ namespace BPlusOne
             for (int i = 0; i < n.Size; i++)
             {
                 Node a = n.Child[i];
-                if (a == null)
-                    continue;
-                result += Node.GetNodeCount(a);
+                if (a != null)
+                {
+                    result += Node.GetNodeCount(a);
+                }
             }
             return result + 1;
         }
 
+        /// <summary>
+        /// Get data from tree.
+        /// </summary>
+        /// <param name="node">Node</param>
+        /// <returns>List</returns>
         public static List<int> GetData(Node node)
         {
             if (node == null)
@@ -69,6 +77,11 @@ namespace BPlusOne
             return data;
         }
 
+        /// <summary>
+        /// Get Data from tree in order.  Recursive.
+        /// </summary>
+        /// <param name="node">Node</param>
+        /// <param name="data">List</param>
         private static void GetDataInOrder(Node node, List<int> data)
         {
             if (node == null)
@@ -85,6 +98,7 @@ namespace BPlusOne
             }
             else
             {
+                // +1 for Children.  Less than or Equal.
                 for (int i = 0; i <= node.Size; i++)
                 {
                     GetDataInOrder(node.Child[i], data);
@@ -92,6 +106,11 @@ namespace BPlusOne
             }
         }
 
+        /// <summary>
+        /// Write to stream in order.
+        /// </summary>
+        /// <param name="node">Node</param>
+        /// <param name="sw">StreamWriter</param>
         public static void WriteToStream(Node node, StreamWriter sw)
         {
             if (node == null)
@@ -115,6 +134,10 @@ namespace BPlusOne
             }
         }
 
+        /// <summary>
+        /// Clear the node.  Recursive.
+        /// </summary>
+        /// <param name="n">Node</param>
         public void Clear(Node n)
         {
             if (n == null)

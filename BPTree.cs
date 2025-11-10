@@ -15,14 +15,18 @@ namespace BPlusOne
         public int GetHeight()
         {
             if (Root == null)
+            {
                 return 0;
+            }
             return Node.GetHeight(Root);
         }
 
         public int GetNodeCount()
         {
             if (Root == null)
+            {
                 return 0;
+            }
             return Node.GetNodeCount(Root);
         }
 
@@ -782,6 +786,10 @@ namespace BPlusOne
             }
         }
 
+        /// <summary>
+        /// Read the file.
+        /// </summary>
+        /// <param name="fileName">string</param>
         public void ReadFile(string fileName)
         {
             using (StreamReader sr = new StreamReader(fileName))
@@ -798,7 +806,11 @@ namespace BPlusOne
             }
         }
 
-
+        /// <summary>
+        /// Write to file.
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// 
         public void WriteToFile(string fileName)
         {
             if (Root == null)
@@ -812,6 +824,9 @@ namespace BPlusOne
             }
         }
 
+        /// <summary>
+        /// Clear the tree.
+        /// </summary>
         public void Clear()
         {
             if (Root == null)

@@ -31,7 +31,7 @@
             List<int> a = t.GetData();
             Console.WriteLine("count " + a.Count);
             Console.WriteLine("sorted " + Util.IsSorted(a));
-            Console.WriteLine("memory {0} mb", Util.GetMemory());
+            Console.WriteLine("duplicate " + Util.HasDuplicate(a));
 
             t.Display();
 
