@@ -15,8 +15,6 @@ The is a C# Console-Mode Project.  Use Visual Studio 2022 and above to compile.
 
 ## Performance
 
-Performance is good. 
-
 | Items | Time | Memory | Height |
 | --- | --- | --- | --- |
 | 1K | 8 ms | 20 mb | 3 |
