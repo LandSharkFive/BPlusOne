@@ -1,35 +1,34 @@
 # B+ Tree
 
-A B+ Tree is a tree where each node contains a list of child nodes.  Each leaf contains an list of integers. All data is saved in the leaves. All operations are done in logarithmic time. Building a N-Tree takes linear time. The best size for the list is between 50 and 100 elements. A B+ Tree can used with external storage. A B+ Tree can be used as a dictionary. A B+ Tree is a sorted list. A B+ Tree is balanced.
+An efficient and functional C# implementation of the B+ Tree. All data is pushed to the leaves; all operations are executed in logarithmic time. This structure is balanced, sorted, and built for high-density external storage.
 
-## Rules
+### The Rules
+The integrity of the tree is maintained by strict structural constraints:
+* **Uniformity:** All leaves reside at the same level.
+* **The Root:** Maintains at least two children.
+* **Branching Factor ($m$):** * Each node (except root) holds between $m/2$ and $m$ children.
+    * Each node contains between $\lceil m/2 \rceil - 1$ and $m - 1$ keys.
+    * **Optimization:** Recommended list size is **50–100 elements**.
 
-1. All leaves are at the same level.
-2. The root has at least two children.
-3. Each node except root can have a maximum of m children and at least m/2 children.
-4. Each node can contain a maximum of m - 1 keys and a minimum of Ceiling(m/2) - 1 keys.
-
-## Install and Build
-
-The is a C# Console-Mode Project.  Use Visual Studio 2022 and above to compile.  
-
-## Performance
+### Performance
+*Building an N-Tree takes linear time. Operational scaling is as follows:*
 
 | Items | Time | Memory | Height |
-| --- | --- | --- | --- |
-| 1K | 8 ms | 20 mb | 3 |
-| 10K | 25 ms | 30 mb | 3 |
-| 100K | 140 ms | 40 mb | 4 |
-| 1M | 1500 ms | 110 mb | 5 |
+| :--- | :--- | :--- | :--- |
+| 1K | 8 ms | 20 MB | 3 |
+| 10K | 25 ms | 30 MB | 3 |
+| 100K | 140 ms | 40 MB | 4 |
+| 1M | 1500 ms | 110 MB | 5 |
 
-## Exercise
+### Build Requirements
+* **Environment:** C# Console-Mode
+* **Compiler:** Visual Studio 2022+
 
-Linking the leaf nodes together is deliberately not included.  This is left as an exercise.  
+### The Exercise
+Linking the leaf nodes together is **deliberately excluded**. If you require sequential traversal, the implementation is left to you.
 
-## References
+---
 
-1. Shashikant Kadam (2020), B+ Tree implementation using C++, GitHub, https://github.com/shashikdm/B-Plus-Tree
-2. Introduction to Algorithms, Third Edition, Thomas M. Cormen, Charles E. Leiserson, Ronald Rivest, Clifford Stein, MIT Press, 2009.
-
-
-
+### References
+* **Introduction to Algorithms** (Cormen, Leiserson, Rivest, Stein), MIT Press.
+* **Shashikant Kadam**, [B+ Tree implementation (C++)](https://github.com/shashikdm/B-Plus-Tree).
